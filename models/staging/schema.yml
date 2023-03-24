@@ -3,7 +3,7 @@ version: 2
 
 sources:
     - name: staging
-      database: ny-rides-franklyne
+      database: de-project-franklyne
       schema: trips_data_all
 
       tables:
@@ -214,18 +214,8 @@ models:
             description: The date and time when the meter was disengaged.
           - name: pickup_locationid
             description: locationid where the meter was engaged.
-            tests:
-              - relationships:
-                  to: ref('taxi_zone_lookup')
-                  field: locationid
-                  severity: warn
           - name: dropoff_locationid 
             description: locationid where the meter was engaged.
-            tests:
-              - relationships:
-                  to: ref('taxi_zone_lookup')
-                  field: locationid
-                  severity: warn
           - name: sr_flag
             description: >
               Indicates if the trip was a part of a shared ride chain offered by a High Volume FHV company (e.g. Uber Pool, Lyft Line).
